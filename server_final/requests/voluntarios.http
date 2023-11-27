@@ -1,0 +1,50 @@
+@api = http://localhost:3000/voluntarios
+
+
+GET {{api}}
+
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+    "carnet_Voluntario": "2",
+    "name": "maria",
+    "telefono": "71234567",
+    "nacionalidad": "Boliviana",
+    "direccion": "Calle Principal",
+    "fechaNacimiento": "05.15.1995",
+    "clase": "MEDIA",
+    "turno": "Mañana"
+
+}
+
+###
+
+GET {{api}}/5
+
+### Deleting 
+
+DELETE {{api}}/4
+
+
+### get total voluntarios
+GET {{api}}/count
+
+
+### update voluntario por Ci
+
+PUT {{api}}/10
+Content-Type: application/json
+
+{
+    "carnet_Voluntario": "1",
+    "name": "diego",
+    "telefono": "60265541",
+    "nacionalidad": "Boliviano",
+    "direccion": "Av. America",
+    "fechaNacimiento": "10.10.2001",
+    "clase": "ALTA",
+    "turno": "Tarde"
+}

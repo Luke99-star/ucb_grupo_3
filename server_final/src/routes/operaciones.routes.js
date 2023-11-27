@@ -4,6 +4,8 @@ import {createNewOperaciones, deleteOperacionesByCodigoEmergencia, getOperacione
 
 const router = Router();
 
+//OEPRACIONES
+
 router.get("/operaciones", getOperaciones);
 
 router.post("/operaciones", createNewOperaciones);

@@ -2,6 +2,7 @@ import express from 'express'
 import config from './config.js'
 
 import operacionesRoutes from './routes/operaciones.routes.js'
+import voluntariosRoutes from './routes/voluntarios.routes.js'
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.set('port', config.port);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(operacionesRoutes)
+app.use(operacionesRoutes);
+app.use(voluntariosRoutes);
 
 export default app 

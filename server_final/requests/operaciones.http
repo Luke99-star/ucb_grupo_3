@@ -1,0 +1,54 @@
+@api = http://localhost:3000/operaciones
+
+GET {{api}}
+
+
+###
+POST {{api}}
+content-Type: application/json
+
+{
+    "codigoVehiculo": "R-500",
+    "nombreDenunciante": "Camila Patino",
+    "telefonoDenunciante": "77777777",
+    "ubicacion": "hamiraya y jordan",
+    "tipoOperacion": "RES",
+    "cantidadPx": 0,
+    "horaSalidaCCR": "1970-01-01T18:05:00.000Z" ,
+    "horaLlegadaLugar": "1970-01-01T18:05:00.000Z",
+    "horaRetorno": "1970-01-01T18:05:00.000Z",
+    "horaCasa": "1970-01-01T18:05:00.000Z",
+    "descripcion": "Rescate de gato atrapado en arbol de 5 metros de alto"
+}
+
+### Obtener una operacion en especifico
+
+GET {{api}}/7
+
+###Deleting an operacion
+
+DELETE {{api}}/8
+
+
+###Obtener el numero total de operaciones
+
+GET {{api}}/count
+
+### update una operacion
+
+PUT {{api}}/7
+Content-Type: application/json
+
+{
+    "codigoVehiculo": "R-500",
+    "nombreDenunciante": "Camila Patino",
+    "telefonoDenunciante": "77777777",
+    "ubicacion": "hamiraya y jordan",
+    "tipoOperacion": "RES",
+    "cantidadPx": 0,
+    "horaSalidaCCR": "1970-01-01T18:05:00.000Z" ,
+    "horaLlegadaLugar": "1970-01-01T18:05:00.000Z",
+    "horaRetorno": "1970-01-01T18:05:00.000Z",
+    "horaCasa": "1970-01-01T18:05:00.000Z",
+    "descripcion": "Rescate de gato atrapado en arbol de 5 metros de alto"
+}

@@ -16,5 +16,14 @@ export const queries = {
     getVoluntarioByCi: 'SELECT * FROM Voluntarios WHERE carnet_Voluntario =@carnet_Voluntario', 
     deleteVoluntario: 'DELETE FROM [SARDDB].[dbo].[Voluntarios] WHERE carnet_Voluntario =@carnet_Voluntario',
     getTotalVoluntarios: 'SELECT COUNT(*) FROM Voluntarios',
-    updateVoluntariosByCi: 'UPDATE Voluntarios SET name= @name, name, telefono=@telefono, direccion=@direccion, fechaNacimiento=@fechaNacimiento, clase=@clase, turno=@turno'
+    updateVoluntariosByCi: 'UPDATE Voluntarios SET name= @name, name, telefono=@telefono, direccion=@direccion, fechaNacimiento=@fechaNacimiento, clase=@clase, turno=@turno',
+
+    //VEHICULOS
+
+    getAllVehiculos: 'SELECT * FROM Vehiculos', 
+    addNewVehiculo: "INSERT INTO Vehiculos (Modelo, Marca, codigo, estado, quantity) VALUES (@Modelo, @Marca, @codigo, @estado, @quantity)",
+    getVehiculoByAño: 'SELECT * FROM Vehiculos Where año = @año',
+    deleteVehiculo: 'DELETE FROM [SARDDB].[dbo].[Vehiculos] WHERE año = @año',
+    getTotalVehiculos: 'SELECT COUNT(*) FROM Vehiculos',
+    updateVehiculoByAño: 'UPDATE Vehiculos SET Modelo = @Modelo, Marca = @Marca, codigo = @codigo, estado = @estado, Quantity = @ quantity WHERE año = @año'
 };

@@ -1,0 +1,39 @@
+@api = http://localhost:3000/vehiculos
+
+
+GET {{api}}
+
+###
+
+POST {{api}} 
+Content-Type: application/json
+
+{
+    "Modelo": "Mazda",
+    "Marca": "Sedan",
+    "codigo": "s",
+    "estado": "bueno"
+}
+
+### Getting a vehiculo
+
+GET {{api}}/10
+
+### Deleting un product
+
+DELETE {{api}}/
+
+### get total vehiculos
+
+GET {{api}}/count
+
+### update a vehiculo
+
+PUT {{api}}/7
+Content-Type: application/json
+{
+    "Modelo": "Mazda",
+    "Marca": "Sedan",
+    "codigo": "s",
+    "estado": "bueno"
+}

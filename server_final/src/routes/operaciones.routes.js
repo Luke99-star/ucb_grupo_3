@@ -1,6 +1,8 @@
 import {Router} from 'express'
 
-import {createNewOperaciones, deleteOperacionesByCodigoEmergencia, getOperaciones, getOperacionesByCodigoEmergencia, getTotalOperaciones, updateOperacionesByCodigoEmergencia} from '../controllers/operaciones.controller.js'
+import {createNewOperaciones, deleteOperacionesByCodigoEmergencia, getOperaciones,
+     getOperacionesByCodigoEmergencia, getTotalOperaciones,
+      updateOperacionesByCodigoEmergencia} from '../controllers/operaciones.controller.js'
 
 const router = Router();
 

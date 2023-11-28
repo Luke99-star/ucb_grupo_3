@@ -11,7 +11,7 @@ Content-Type: application/json
 {
     "Modelo": "Mazda",
     "Marca": "Sedan",
-    "codigo": "s",
+    "codigo": "1",
     "estado": "bueno"
 }
 
@@ -21,7 +21,7 @@ GET {{api}}/10
 
 ### Deleting un product
 
-DELETE {{api}}/
+DELETE {{api}}/4
 
 ### get total vehiculos
 
@@ -34,6 +34,6 @@ Content-Type: application/json
 {
     "Modelo": "Mazda",
     "Marca": "Sedan",
-    "codigo": "s",
+    "codigo": "1",
     "estado": "bueno"
 }

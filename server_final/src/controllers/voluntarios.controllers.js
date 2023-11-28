@@ -17,7 +17,7 @@ export const createNewVoluntario = async (req, res) => {
     const { carnet_Voluntario, name, telefono, nacionalidad, direccion, fechaNacimiento, clase, turno } = req.body
 
     if (name == null || carnet_Voluntario == null || telefono == null || nacionalidad == null || direccion == null || fechaNacimiento == null || clase == null || turno == null) {
-        return res.status(400).json({ msg: 'Bad Request, por favro llena todos los campos' })
+        return res.status(400).json({ msg: 'Bad request. Please fill all fields' })
     }
 
     try {
@@ -81,7 +81,7 @@ export const updateVolunarioByCi = async (req, res) => {
     const {carnet_Voluntario} = req.params
 
     if (name == null || carnet_Voluntario == null || telefono == null || nacionalidad == null || direccion == null || fechaNacimiento == null || clase == null || turno == null) {
-        return res.status(400).json({ msg: 'Bad Request, por favro llena todos los campos' })
+        return res.status(400).json({ msg: 'Bad request. Please fill all fields' })
     }
 
     const pool = await getConnection()

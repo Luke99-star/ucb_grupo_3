@@ -19,7 +19,7 @@ export const createNewVehiculo = async(req, res) => {
 
     let { quantity } = req.body;
 
-    if(Modelo == null || Marca == null){
+    if(Modelo == null || Marca == null || codigo == null || estado == null ){
         return res.status(400).json({msg: 'Bad Request. Please Fill all fields'})
     }
     if(quantity == null) quantity = 0;
@@ -32,7 +32,8 @@ export const createNewVehiculo = async(req, res) => {
         .input("Modelo", sql.VarChar, Modelo)
         .input('Marca', sql.VarChar, Marca)
         .input('quantity', sql.Int, quantity)
-        .input('codigo', sql.VarChar, codigo)
+        .input('año', sql.Int, año)
+        .input('codigo', sql.Int, codigo)
         .input('estado', sql.VarChar, estado)
         .query(queries.addNewVehiculo);
 
@@ -43,26 +44,26 @@ export const createNewVehiculo = async(req, res) => {
      }
 };
 
-export const getVehiculosByAño = async (req, res) => {
-    const {año} = req.params;
+export const getVehiculosByCodigo = async (req, res) => {
+    const {codigo} = req.params;
 
     const pool = await getConnection();
     const result = await pool
     .request()
-    .input('año', año)
-    .query(queries.getVehiculoByAño);
+    .input('codigo', codigo)
+    .query(queries.getVehiculosByCodigo);
    // console.log(result);
 
     res.send(result.recordset[0])
 };
 
-export const deleteVehiculoByAño = async (req, res) => {
-    const {año} = req.params;
+export const deleteVehiculoByCodigo = async (req, res) => {
+    const {codigo} = req.params;
 
     const pool = await getConnection();
     const result = await pool
     .request()
-    .input("año", año)
+    .input("codigo", codigo)
     .query(queries.deleteVehiculo);
 }
 
@@ -75,9 +76,9 @@ export const getTotalVehiculos = async (req, res) => {
     res.json(result.recordset[0][''])
 };
 
-export const updateVehiculoByAño = async (req, res) => {
-    const {Modelo, Marca, quantity, codigo, estado} = req.body;
-    const { año } = req.params;
+export const updateVehiculoByCodigo = async (req, res) => {
+    const {Modelo, Marca, quantity, año, estado} = req.body;
+    const { codigo } = req.params;
 
     if(Modelo == null || Marca == null, quantity == null || codigo == null || estado == null){
         return res.status(400).json({ msg: "Bad Request. Please Fill all fields"});
@@ -90,10 +91,10 @@ export const updateVehiculoByAño = async (req, res) => {
         .input("Marca", sql.VarChar, Marca)
         .input("quantity", sql.Int, quantity)
         .input('año', sql.Int, año)
-        .input("codigo", sql.VarChar, codigo)
+        .input("codigo", sql.Int, codigo)
         .input("estado", sql.VarChar, estado)
         .query(queries.updateVehiculoByAño);
 
-        res.json({Modelo, Marca, quantity, codigo, estado});
-        
+        res.json({Modelo, Marca, quantity, codigo, estado})
+
 };

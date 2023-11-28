@@ -3,6 +3,7 @@ import config from './config.js'
 
 import operacionesRoutes from './routes/operaciones.routes.js'
 import voluntariosRoutes from './routes/voluntarios.routes.js'
+import vehiculosRoutes from './routes/vehiculos.routes.js'
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(operacionesRoutes);
 app.use(voluntariosRoutes);
+app.use(vehiculosRoutes);
 
 export default app 

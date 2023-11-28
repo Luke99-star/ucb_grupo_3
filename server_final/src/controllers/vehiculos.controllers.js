@@ -22,7 +22,9 @@ export const createNewVehiculo = async(req, res) => {
     if(Modelo == null || Marca == null || codigo == null || estado == null ){
         return res.status(400).json({msg: 'Bad Request. Please Fill all fields'})
     }
-    if(quantity == null) quantity = 0;
+    if(quantity == null){
+        quantity = 0;
+    } 
 
      try {
         const pool = await getConnection();

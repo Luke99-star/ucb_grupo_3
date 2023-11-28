@@ -1,0 +1,94 @@
+<html lang="es">
+<head>
+    <title>Formulario de Operaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="procesar_operacion" method="post">
+        <h2>Formulario de Operaciones</h2>
+        <label for="tipoOperacion">Tipo de Operación:</label>
+        <select id="tipoOperacion" name="tipoOperacion">
+            <option value="tipo1">Tipo 1</option>
+            <option value="tipo2">Tipo 2</option>
+            <option value="tipo3">Tipo 3</option>
+            <option value="tipo4">Tipo 4</option>
+        </select>
+
+        <label for="codigoOperacion">Código de Operación:</label>
+        <input type="text" id="codigoOperacion" name="codigoOperacion" required>
+
+        <label for="emergencia">Emergencia:</label>
+        <textarea id="emergencia" name="emergencia" rows="4" required></textarea>
+
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" id="ubicacion" name="ubicacion" required>
+
+        <label for="zona">Zona:</label>
+        <input type="text" id="zona" name="zona" required>
+
+        <label for="puntoReferencia">Punto de Referencia:</label>
+        <input type="text" id="puntoReferencia" name="puntoReferencia" required>
+
+        <label for="denunciante">Nombre de Denunciante:</label>
+        <input type="text" id="denunciante" name="denunciante" required>
+
+        <label for="numReferencia">Número de Referencia:</label>
+        <input type="text" id="numReferencia" name="numReferencia" required>
+
+        <label for="cantPacientes">Cantidad de Pacientes:</label>
+        <input type="number" id="cantPacientes" name="cantPacientes" required>
+
+        <label for="horaRegistro">Hora de Registro:</label>
+        <button type="button" onclick="registrarHora()">Registrar Hora</button>
+
+        <label for="unidadDesplazamiento">Unidad de Desplazamiento:</label>
+        <select id="unidadDesplazamiento" name="unidadDesplazamiento">
+            <option value="vehiculo1">Vehículo 1</option>
+            <option value="vehiculo2">Vehículo 2</option>
+        </select>
+
+        <label for="voluntarios">Voluntarios:</label>
+        <select id="voluntarios" name="voluntarios" multiple>
+            <option value="voluntario1">Voluntario 1</option>
+            <option value="voluntario2">Voluntario 2</option>
+        </select>
+
+        <button type="submit">Registrar Operación</button>
+    </form>
+
+</body>
+</html>

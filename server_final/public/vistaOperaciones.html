@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Lista de Operaciones</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #24862c;
+            padding: 20px;
+        }
+
+        h1.title,
+        h2.subtitle {
+            color: #06ce49;
+            text-align: center;
+        }
+
+        table {
+            margin: 2rem auto;
+            background-color: #6d6b6b;
+            color: #24862c;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #24862c;
+        }
+
+        th {
+            background-color: #60d36f;
+            color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 class="title is-1">🚨 Lista de Operaciones</h1>
+        <a href="menu.html" class="button is-success">Volver al Menú Principal</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Código de Emergencia</th>
+                <th>Código de Vehículo</th>
+                <th>Nombre del Denunciante</th>
+                <th>Teléfono del Denunciante</th>
+                <th>Ubicación</th>
+                <th>Tipo de Operación</th>
+                <th>Cantidad de Personas</th>
+                <th>Hora de Salida (CCR)</th>
+                <th>Hora de Llegada al Lugar</th>
+                <th>Hora de Retorno</th>
+                <th>Hora de Regreso a Casa</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody id="operacionesTableBody"></tbody>
+    </table>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            loadOperaciones();
+        });
+
+        function loadOperaciones() {
+            const url = 'http://localhost:4000/api/operaciones';
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => displayOperaciones(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function displayOperaciones(operaciones) {
+            const tableBody = document.getElementById('operacionesTableBody');
+
+            operaciones.forEach(operacion => {
+                const row = tableBody.insertRow();
+                const keys = Object.keys(operacion);
+
+                keys.forEach(key => {
+                    const cell = row.insertCell();
+                    cell.textContent = operacion[key];
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Lista de Voluntarios</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #24862c;
+        }
+
+        h1.title,
+        h2.subtitle {
+            color: #06ce49;
+            text-align: center;
+        }
+
+        table {
+            margin: 2rem auto;
+            background-color: #6d6b6b;
+            color: #24862c;
+            width: 80%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #24862c;
+        }
+
+        th {
+            background-color: #60d36f;
+            color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 class="title is-1">👥 Lista de Voluntarios</h1>
+        <a href="menu.html" class="button is-success">Volver al Menú Principal</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Carnet de Voluntario</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Nacionalidad</th>
+                <th>Dirección</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Clase</th>
+                <th>Turno</th>
+            </tr>
+        </thead>
+        <tbody id="voluntariosTableBody"></tbody>
+    </table>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            loadVoluntarios();
+        });
+
+        function loadVoluntarios() {
+            const url = 'http://localhost:4000/api/voluntarios';
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => displayVoluntarios(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function displayVoluntarios(voluntarios) {
+            const tableBody = document.getElementById('voluntariosTableBody');
+
+            voluntarios.forEach(voluntario => {
+                const row = tableBody.insertRow();
+                const keys = Object.keys(voluntario);
+
+                keys.forEach(key => {
+                    const cell = row.insertCell();
+                    cell.textContent = voluntario[key];
+                });
+            });
+        }
+    </script>
+</body>
+</html>

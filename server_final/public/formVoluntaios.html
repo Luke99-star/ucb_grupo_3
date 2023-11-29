@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Registro de Voluntarios</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #24862c;
+        }
+
+        h1.title,
+        h2.subtitle {
+            color: #06ce49;
+            text-align: center;
+        }
+
+        input.input,
+        button.button.is-success {
+            background-color: #60d36f;
+            color: #000000;
+        }
+
+        .box {
+            background-color: #6d6b6b;
+            margin: 2rem auto;
+            max-width: 400px;
+            padding: 2rem;
+        }
+
+        button.button.is-meidum {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 class="title is-1">👥 Formulario de Voluntarios</h1>
+        <h2 class="subtitle is-3">Por favor ingresa tus datos</h2>
+    </div>
+    <div class="box my-6">
+        <div class="field">
+            <label class="label" for="carnetVoluntario">Carnet de Voluntario:</label>
+            <div class="control">
+                <input class="input" id="carnetVoluntario" >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="name">Nombre:</label>
+            <div class="control">
+                <input class="input" id="name" >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="telefono">Teléfono:</label>
+            <div class="control">
+                <input class="input" type="text" id="telefono" placeholder="Ej: +591 739-88784">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="nacionalidad">Nacionalidad:</label>
+            <div class="control">
+                <input class="input" id="nacionalidad" >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="direccion">Dirección:</label>
+            <div class="control">
+                <input class="input" id="direccion" >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <div class="control">
+                <input class="input" id="fechaNacimiento" >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="clase">Clase:</label>
+            <div class="control">
+                <input class="input" id="clase" >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="turno">Turno:</label>
+            <div class="control">
+                <input class="input" id="turno" >
+            </div>
+        </div>
+        <div class="block">
+            <button class="button is-success is-medium is-fullwidth mt-6" onclick="submitVoluntarioForm()">Enviar</button>
+        </div>
+    </div>
+    <script>
+        function submitVoluntarioForm() {
+            function getValues() {
+                return {
+                    carnetVoluntario: document.getElementById('carnetVoluntario').value,
+                    name: document.getElementById('name').value,
+                    telefono: document.getElementById('telefono').value,
+                    nacionalidad: document.getElementById('nacionalidad').value,
+                    direccion: document.getElementById('direccion').value,
+                    fechaNacimiento: document.getElementById('fechaNacimiento').value,
+                    clase: document.getElementById('clase').value,
+                    turno: document.getElementById('turno').value,
+                };
+            }
+
+            const url = 'http://localhost:4000/api/voluntarios';
+            const method = 'POST';
+            const headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            };
+            const body = JSON.stringify(getValues());
+            const metadata = { method, headers, body };
+            fetch(url, metadata)
+                .then(response => response.json())
+                .then(response => console.log(JSON.stringify(response)))
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

@@ -25,5 +25,8 @@ export const queries = {
     getVehiculoByAño: 'SELECT * FROM Vehiculos Where codigo = @codigo',
     deleteVehiculo: 'DELETE FROM [SARDDB].[dbo].[Vehiculos] WHERE codigo = @codigo',
     getTotalVehiculos: 'SELECT COUNT(*) FROM Vehiculos',
-    updateVehiculoByAño: 'UPDATE Vehiculos SET Modelo = @Modelo, Marca = @Marca, codigo = @codigo, estado = @estado, Quantity = @ quantity, año = @año'
+    updateVehiculoByAño: 'UPDATE Vehiculos SET Modelo = @Modelo, Marca = @Marca, codigo = @codigo, estado = @estado, Quantity = @ quantity, año = @año',
+
+    //LOGIN 
+    getUserByUsernameAndPassword: 'SELECT * FROM Usuarios WHERE username = @username AND password = @password',
 };

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Registro de Vehículos</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #24862c;
+        }
+
+        h1.title,
+        h2.subtitle {
+            color: #06ce49;
+            text-align: center;
+        }
+
+        input.input,
+        button.button.is-success {
+            background-color: #60d36f;
+            color: #000000;
+        }
+
+        .box {
+            background-color: #6d6b6b;
+            margin: 2rem auto;
+            max-width: 400px;
+            padding: 2rem;
+        }
+
+        button.button.is-meidum {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 class="title is-1">🚗 Formulario de Vehículos</h1>
+        <h2 class="subtitle is-3">Por favor ingresa los datos del vehículo</h2>
+    </div>
+    <div class="box my-6">
+        <div class="field">
+            <label class="label" for="Modelo">Modelo:</label>
+            <div class="control">
+                <input class="input" id="Modelo">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="Marca">Marca:</label>
+            <div class="control">
+                <input class="input" id="Marca">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="quantity">Cantidad:</label>
+            <div class="control">
+                <input class="input" type="text" id="quantity" placeholder="Ej: 10">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="codigo">Código:</label>
+            <div class="control">
+                <input class="input" id="codigo">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="estado">Estado:</label>
+            <div class="control">
+                <input class="input" id="estado">
+            </div>
+        </div>
+        <div class="block">
+            <button class="button is-success is-medium is-fullwidth mt-6" onclick="submitVehiculoForm()">Enviar</button>
+        </div>
+    </div>
+    <script>
+        function submitVehiculoForm() {
+            function getValues() {
+                return {
+                    Modelo: document.getElementById('Modelo').value,
+                    Marca: document.getElementById('Marca').value,
+                    quantity: document.getElementById('quantity').value,
+                    codigo: document.getElementById('codigo').value,
+                    estado: document.getElementById('estado').value,
+                };
+            }
+
+            const url = 'http://localhost:4000/api/vehiculos';
+            const method = 'POST';
+            const headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            };
+            const body = JSON.stringify(getValues());
+            const metadata = { method, headers, body };
+            fetch(url, metadata)
+                .then(response => response.json())
+                .then(response => console.log(JSON.stringify(response)))
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

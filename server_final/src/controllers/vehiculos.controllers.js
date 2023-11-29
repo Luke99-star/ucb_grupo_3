@@ -34,7 +34,7 @@ export const createNewVehiculo = async(req, res) => {
         .input("Modelo", sql.VarChar, Modelo)
         .input('Marca', sql.VarChar, Marca)
         .input('quantity', sql.Int, quantity)
-        .input('año', sql.Int, año)
+        .input('año', sql.Date, año)
         .input('codigo', sql.Int, codigo)
         .input('estado', sql.VarChar, estado)
         .query(queries.addNewVehiculo);
@@ -92,7 +92,7 @@ export const updateVehiculoByCodigo = async (req, res) => {
         .input("Modelo", sql.VarChar, Modelo)
         .input("Marca", sql.VarChar, Marca)
         .input("quantity", sql.Int, quantity)
-        .input('año', sql.Int, año)
+        .input('año', sql.Date, año)
         .input("codigo", sql.Int, codigo)
         .input("estado", sql.VarChar, estado)
         .query(queries.updateVehiculoByAño);

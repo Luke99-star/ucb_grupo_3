@@ -8,19 +8,19 @@
     <style>
         body {
             background-color: #0a0a0a;
-            color: #24862c;
+            color: #FFA500;
         }
 
         h1.title,
         h2.subtitle {
-            color: #06ce49;
+            color: #bc7a00;
             text-align: center;
         }
 
         table {
             margin: 2rem auto;
             background-color: #6d6b6b;
-            color: #24862c;
+            color: #FFA500;
             width: 80%;
             border-collapse: collapse;
         }
@@ -28,11 +28,11 @@
         th, td {
             padding: 1rem;
             text-align: left;
-            border-bottom: 1px solid #24862c;
+            border-bottom: 1px solid #bc7a00;
         }
 
         th {
-            background-color: #60d36f;
+            background-color: #FFA500;
             color: #000000;
         }
 
@@ -64,7 +64,7 @@
         });
 
         function loadVoluntarios() {
-            const url = 'http://localhost:4000/api/voluntarios';
+            const url = 'http://localhost:3000/api/Voluntarios';
             
             fetch(url)
                 .then(response => response.json())

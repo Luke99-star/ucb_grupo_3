@@ -30,7 +30,7 @@ export const createNewVoluntario = async (req, res) => {
         .input('telefono', sql.Int, telefono)
         .input('nacionalidad', sql.VarChar, nacionalidad)
         .input('direccion', sql.VarChar, direccion)
-        .input('fechaNacimiento', sql.VarChar, fechaNacimiento)
+        .input('fechaNacimiento', sql.Date, fechaNacimiento)
         .input('clase', sql.VarChar, clase)
         .input('turno', sql.VarChar, turno)
         .query(queries.addNewVoluntario);
@@ -91,7 +91,7 @@ export const updateVolunarioByCi = async (req, res) => {
         .input('telefono', sql.Int, telefono)
         .input('nacionalidad', sql.VarChar, nacionalidad)
         .input('direccion', sql.VarChar, direccion)
-        .input('fechaNacimiento', sql.VarChar, fechaNacimiento)
+        .input('fechaNacimiento', sql.Date, fechaNacimiento)
         .input('clase', sql.VarChar, clase)
         .input('turno', sql.VarChar, turno)
         .input('carnet_Voluntario', sql.Int, carnet_Voluntario)

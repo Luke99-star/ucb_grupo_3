@@ -1,5 +1,3 @@
-//aca solo entran las consultas de las bases de datos
-
 export const queries = {
     getAllOperaciones: 'SELECT * FROM Operaciones1',
     

@@ -5,16 +5,16 @@ import { createNewVehiculo, deleteVehiculoByAño, getVehiculos,
 
 const router = Router();
 
-Router.get("/vehiculos", getVehiculos);
+router.get("/vehiculos", getVehiculos);
 
-Router.post("/vehiculos", createNewVehiculo);
+router.post("/vehiculos", createNewVehiculo);
 
-Router.get("/vehiculos/count", getTotalVehiculos);
+router.get("/vehiculos/count", getTotalVehiculos);
 
-Router.get("/vehiculos/:codigo", getVehiculosByCodigo);
+router.get("/vehiculos/:codigo", getVehiculosByCodigo);
 
-Router.delete("/vehiculos/:codigo", deleteVehiculoByCodigo);
+router.delete("/vehiculos/:codigo", deleteVehiculoByCodigo);
 
-Router.put("/vehiculos/:codigo ", updateVehiculoByCodigo);
+router.put("/vehiculos/:codigo ", updateVehiculoByCodigo);
 
 export default router
